@@ -42,9 +42,6 @@ require 'rspec'
 require 'fileutils'
 require 'sensu-plugin/check/cli'
 
-#
-# CheckTestSuite Class
-#
 class CheckTestSuite < Sensu::Plugin::Check::CLI
   option :paths,
          description: 'Paths to run the tests, comma delimited',
@@ -141,7 +138,7 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
 
       tests[path]['test_suite_out']  = `#{ test_suite_args.join(' ') }`
       tests[path]['runtime']         = Time.now - start
-      tests[path]['exitstatus']      = $?.exitstatus
+      tests[path]['exitstatus']      = $CHILD_STATUS.exitstatus
       tests[path]['commit']          = `/bin/readlink #{ path }`.split('/').last
       target_branch                  = `cd #{ path } && /usr/bin/git branch -r --contains #{ tests[path]['commit'] }`
       tests[path]['branch']          = target_branch.split("\n").last.chomp.strip.split('origin/').last
