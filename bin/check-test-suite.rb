@@ -52,11 +52,13 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
          long: '--path PATHS'
 
   option :ruby_bin,
+         description: 'Location of ruby bin, it is highly recommended to use the rvm gemset ruby if utilizing rvm',
          short: '-b ruby',
          long: '--ruby-bin ruby',
          default: 'ruby'
 
   option :environment_variables,
+         description: 'Optional additional environmental variables to pass to ruby and/or rspec',
          short: '-e aws_access_key_id=XXX',
          long: '--env-var aws_access_key_id=XXX',
          required: false
@@ -68,13 +70,13 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
          default: 'rspec'
 
   option :suite_arguments,
-         description: 'Optional args to pass to rspec, defaults to --fail-fast. Enclose args in quotes.',
+         description: 'Optional args to pass to rspec, defaults to --fail-fast. Enclose args in quotes or else the plugin will error',
          short: '-a "RSPEC_ARGS"',
          long: '--args "RSPEC_ARGS"',
          default: '--fail-fast'
 
   option :gem_home,
-         description: '',
+         description: 'Attempts to utilize the bundle stored in vendor/bundle. Cookbooks not using the standard gem location will need to set this',
          short: '-d GEM_HOME',
          long: '--gem-home GEM_HOME',
          default: 'vendor/bundle'
