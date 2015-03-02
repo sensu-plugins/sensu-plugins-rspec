@@ -40,12 +40,14 @@
 #   for details.
 #
 
-require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'json'
 require 'socket'
 require 'rspec'
 require 'sensu-plugin/check/cli'
 
+#
+# Check Rspec Class
+#
 class CheckRspec < Sensu::Plugin::Check::CLI
   option :ruby_bin,
          short: '-b ruby',
@@ -92,7 +94,7 @@ class CheckRspec < Sensu::Plugin::Check::CLI
     sensu_client_socket d.to_json
   end
 
-  def run
+  def run # rubocop:disable AbcSize
     cd  = "cd #{config[:tests_dir]};"
     run = "#{config[:environment_variables]} #{config[:ruby_bin]} -S #{config[:rspec_bin]} #{config[:spec_dir]} -f json"
 
