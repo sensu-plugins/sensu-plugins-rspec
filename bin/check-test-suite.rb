@@ -32,7 +32,7 @@
 #    The codebases must be managed through git to be effective, the check relies on being able to find the commits in the filesystem.
 #
 #  LICENSE:
-#    Louis Alridge louis@socialcentiv.com
+#    Louis Alridge louis@socialcentiv.com (loualrid@gmail.com)
 #    Released under the same terms as Sensu (the MIT license); see LICENSE
 #    for details.
 
@@ -42,6 +42,9 @@ require 'rspec'
 require 'fileutils'
 require 'sensu-plugin/check/cli'
 
+#
+# CheckTestSuite Class
+#
 class CheckTestSuite < Sensu::Plugin::Check::CLI
   option :paths,
          description: 'Paths to run the tests, comma delimited',
