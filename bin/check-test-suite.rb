@@ -42,6 +42,9 @@ require 'rspec'
 require 'fileutils'
 require 'sensu-plugin/check/cli'
 
+#
+# CheckTestSuite Class
+#
 class CheckTestSuite < Sensu::Plugin::Check::CLI
   option :paths,
          description: 'Paths to run the tests, comma delimited',
