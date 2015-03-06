@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.authors                = ['Yieldbot, Inc. and contributors']
   s.email                  = '<sensu-users@googlegroups.com>'
   s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-rspec'
-  s.summary                = ''
-  s.description            = ''
+  s.summary                = 'Checks for RSpec test completion and status'
+  s.description            = 'Checks for RSpec test completion and status'
   s.license                = 'MIT'
   s.date                   = Date.today.to_s
   s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
@@ -30,17 +30,16 @@ Gem::Specification.new do |s|
   s.platform               = Gem::Platform::RUBY
   s.required_ruby_version  = '>= 1.9.3'
 
-  s.add_runtime_dependency 'sensu-plugin'
-  s.add_runtime_dependency 'json'
-  s.add_runtime_dependency 'rspec'
+  s.add_runtime_dependency 'sensu-plugin', '1.1.0'
+  s.add_runtime_dependency 'json', '~> 1.8'
+  s.add_runtime_dependency 'rspec', '~> 3.1', '~> 3.1'
 
   s.add_development_dependency 'codeclimate-test-reporter'
-  s.add_development_dependency 'rubocop', '~> 0.17.0'
-  s.add_development_dependency 'rspec', '~> 3.1'
+  s.add_development_dependency 'rubocop', '~> 0.17'
   s.add_development_dependency 'bundler', '~> 1.7'
   s.add_development_dependency 'rake', '~> 10.0'
-  s.add_development_dependency 'github-markup'
-  s.add_development_dependency 'redcarpet'
-  s.add_development_dependency 'yard'
-  s.add_development_dependency 'pry'
+  s.add_development_dependency 'github-markup', '~> 1.3'
+  s.add_development_dependency 'redcarpet', '~> 3.2'
+  s.add_development_dependency 'yard', '~> 0.8'
+  s.add_development_dependency 'pry', '~> 0.10'
 end

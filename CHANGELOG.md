@@ -7,3 +7,8 @@
 #### 0.0.1.alpha.2
 
 * clean codebase
+* add irc notification to Travis build
+
+#### 0.0.1.alpha.3
+
+* pin all runtime dependencies
