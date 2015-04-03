@@ -8,7 +8,7 @@ module SensuPluginsRSpec
     MINOR = 0
     PATCH = 1
 
-    VER_STRING = [MAJOR, MINOR, PATCH, 'alpha.3'].compact.join('.')
+    VER_STRING = [MAJOR, MINOR, PATCH, 'alpha.4'].compact.join('.')
 
     NAME   = 'sensu-plugins-rspec'
     BANNER = "#{NAME} v%s"
