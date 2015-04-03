@@ -12,3 +12,4 @@
 #### 0.0.1.alpha.3
 
 * pin all runtime dependencies
+* fix rubocop issues
