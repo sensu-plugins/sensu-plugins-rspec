@@ -1,7 +1,15 @@
+
+require 'sensu-plugins-rspec/version'
+
+# Load the defaults
+
 #
-# Set gem version
+# Default class
 #
-module SensuPluginsRspec
-  # Gem version
-  VERSION = '0.0.1.alpha.3'
+module SensuPluginsRSpec
+  class << self
+  end
+
+  class << self
+  end
 end
