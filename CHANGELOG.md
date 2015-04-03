@@ -13,3 +13,5 @@
 
 * pin all runtime dependencies
 * fix rubocop issues
+* add new version modules
+* add new bump and version rake tasks
