@@ -90,14 +90,14 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
   end
 
   def write_file_cache_message(location, message)
-    if !File.exists?(location)
+    if !File.exist?(location)
       File.open(location, 'w') { |f| f.write(message) }
     else
       File.open(location, 'a') { |f| f.puts(message) }
     end
   end
 
-  def run
+  def run #rubocop:disable all
     full_start       = Time.now
     tests            = {}
     successful_tests = {}
@@ -136,9 +136,9 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
 
       ENV['GEM_HOME'] = final_gem_home
       test_suite_args = [
-         "cd #{ path };",
-         "#{ config[:environment_variables] } #{config[:ruby_bin]} -S #{ config[:test_suite] }",
-         "#{ config[:suite_arguments] } --failure-exit-code 2"
+        "cd #{ path };",
+        "#{ config[:environment_variables] } #{config[:ruby_bin]} -S #{ config[:test_suite] }",
+        "#{ config[:suite_arguments] } --failure-exit-code 2"
       ]
 
       tests[path]['test_suite_out']  = `#{ test_suite_args.join(' ') }`
@@ -181,7 +181,7 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
 
     successful_branches = []
 
-    successful_tests.each_pair { |key, hash| successful_branches << hash['branch'] }
+    successful_tests.each_pair { |_key, hash| successful_branches << hash['branch'] }
 
     ok "OK! Rspec returned no failed tests for #{ successful_branches.join(', ') }.\nCompleted in #{ full_start - Time.now } seconds."
   rescue StandardError => e
