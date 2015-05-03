@@ -1,13 +1,14 @@
-#### 0.0.1.alpha.1
+#Change Log
+This project adheres to [Semantic Versioning](http://semver.org/).
 
-* identical functionality as community-plugins
-* fix rubocop errors
-* add unpinned dependencies to gemspec
+This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
-#### 0.0.1.alpha.2
+## Unreleased][unreleased]
 
-* clean codebase
-* add irc notification to Travis build
+## 0.0.1 - 2015-04-29
+
+### Added
+- initial release
 
 #### 0.0.1.alpha.3
 
@@ -15,3 +16,14 @@
 * fix rubocop issues
 * add new version modules
 * add new bump and version rake tasks
+
+#### 0.0.1.alpha.2
+
+* clean codebase
+* add irc notification to Travis build
+
+#### 0.0.1.alpha.1
+
+* identical functionality as community-plugins
+* fix rubocop errors
+* add unpinned dependencies to gemspec

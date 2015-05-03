@@ -8,7 +8,7 @@ module SensuPluginsRSpec
     MINOR = 0
     PATCH = 1
 
-    VER_STRING = [MAJOR, MINOR, PATCH, 'alpha.4'].compact.join('.')
+    VER_STRING = [MAJOR, MINOR, PATCH].compact.join('.')
 
     NAME   = 'sensu-plugins-rspec'
     BANNER = "#{NAME} v%s"
@@ -21,7 +21,7 @@ module SensuPluginsRSpec
 
     def json_version
       {
-          'version' => VER_STRING
+        'version' => VER_STRING
       }.to_json
     end
   end

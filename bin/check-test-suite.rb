@@ -151,7 +151,7 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
       case tests[path]['exitstatus']
       when 2
         test_suite_lines = tests[path]['test_suite_out'].split("\n")
-        test_suite_out_fail_line = test_suite_lines.index(test_suite_lines.select { |line| line.include?('Failures:') }.first)
+        test_suite_out_fail_line = test_suite_lines.index(test_suite_lines.find { |line| line.include?('Failures:') })
 
         write_file_cache_message commit_file, 'failure'
 
