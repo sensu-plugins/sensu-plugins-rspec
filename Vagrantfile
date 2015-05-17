@@ -52,7 +52,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vagrant_config['cent6']['role'].each do |r|
         chef.add_role(r)
       end
-      # chef.add_recipe 'apache2'
     end
   end
 
@@ -63,7 +62,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vagrant_config['cent7']['role'].each do |r|
         chef.add_role(r)
       end
-      # chef.add_recipe 'apache2'
     end
   end
 
@@ -99,7 +97,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vagrant_config['bsd9']['role'].each do |r|
         chef.add_role(r)
       end
-      # chef.add_recipe 'apache2'
     end
   end
 
@@ -115,7 +112,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vagrant_config['bsd10']['role'].each do |r|
         chef.add_role(r)
       end
-      # chef.add_recipe 'apache2'
     end
   end
 end
