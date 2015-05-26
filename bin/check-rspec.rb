@@ -15,9 +15,7 @@
 #
 # DEPENDENCIES:
 #   gem: sensu-plugin
-#   gem: json
 #   gem: rspec
-#   gem: socket
 #
 # USAGE:
 #   Run entire suite of tests
