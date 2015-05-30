@@ -35,5 +35,4 @@ Run tests with required options and multiple environment variables
 
 [Installation and Setup](https://github.com/sensu-plugins/documentation/blob/master/user_docs/installation_instructions.md)
 
-
 ## Notes
