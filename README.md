@@ -1,6 +1,6 @@
 ## Sensu-Plugins-rspec
 
-[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-rspec.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-rspec)
+[ ![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-rspec.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-rspec)
 [![Gem Version](https://badge.fury.io/rb/sensu-plugins-rspec.svg)](http://badge.fury.io/rb/sensu-plugins-rspec)
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-rspec/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-rspec)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-rspec/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-rspec)
