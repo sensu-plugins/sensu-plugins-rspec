@@ -80,11 +80,11 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
          default: 'vendor/bundle'
 
   def initialize_file_cache(branch, commit)
-    commit_file_directory = "/var/log/sensu/check-test-suite-#{ branch }"
+    commit_file_directory = "/var/log/sensu/check-test-suite-#{branch}"
 
     FileUtils.mkdir_p commit_file_directory
 
-    write_file_cache_message "#{ commit_file_directory }/#{ commit }", 'verified'
+    write_file_cache_message "#{commit_file_directory}/#{commit}", 'verified'
   end
 
   def write_file_cache_message(location, message)
@@ -111,13 +111,13 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
 
       initialize_file_cache tests[path]['branch'], tests[path]['commit']
 
-      commit_file = "/var/log/sensu/check-test-suite-#{ tests[path]['branch'] }/#{ tests[path]['commit'] }"
+      commit_file = "/var/log/sensu/check-test-suite-#{tests[path]['branch']}/#{tests[path]['commit']}"
 
       next if File.exist?(commit_file) && File.read(commit_file).include?('successful')
 
       if config[:gem_home] == 'vendor/bundle'
         target_ruby = ''
-        target_rubies = Dir.entries("#{ path }/#{ config[:gem_home] }/ruby").select { |item| item =~ /(\d+\.\d+\.\d+)/ }
+        target_rubies = Dir.entries("#{path}/#{config[:gem_home]}/ruby").select { |item| item =~ /(\d+\.\d+\.\d+)/ }
 
         target_rubies.each do |ruby|
           target_rubies.each do |other_ruby|
@@ -129,14 +129,14 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
           end
         end
 
-        final_gem_home = `/bin/readlink #{ path }`.chomp.strip + "/#{ config[:gem_home] }/ruby/#{ target_ruby }"
+        final_gem_home = `/bin/readlink #{ path }`.chomp.strip + "/#{config[:gem_home]}/ruby/#{target_ruby}"
       end
 
       ENV['GEM_HOME'] = final_gem_home
       test_suite_args = [
-        "cd #{ path };",
-        "#{ config[:environment_variables] } #{config[:ruby_bin]} -S #{ config[:test_suite] }",
-        "#{ config[:suite_arguments] } --failure-exit-code 2"
+        "cd #{path};",
+        "#{config[:environment_variables]} #{config[:ruby_bin]} -S #{config[:test_suite]}",
+        "#{config[:suite_arguments]} --failure-exit-code 2"
       ]
 
       tests[path]['test_suite_out']  = `#{ test_suite_args.join(' ') }`
@@ -158,9 +158,9 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
         next if File.read(commit_file).scan(/failure/).count < 2
 
         critical_out = [
-          "CRITICAL! Rspec returned failed tests for #{ tests[path]['branch'] }!",
-          "#{ tests[path]['metadata'] }#{ test_suite_lines[test_suite_out_fail_line..(test_suite_lines.count)].join("\n") }",
-          "Error'd in #{ tests[path]['runtime'] } seconds."
+          "CRITICAL! Rspec returned failed tests for #{tests[path]['branch']}!",
+          "#{tests[path]['metadata']}#{test_suite_lines[test_suite_out_fail_line..(test_suite_lines.count)].join("\n")}",
+          "Error'd in #{tests[path]['runtime']} seconds."
         ]
 
         critical critical_out.join("\n\n")
@@ -170,10 +170,10 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
         write_file_cache_message commit_file, 'successful'
 
         if config[:paths].split(',').length == 1
-          ok "OK! Rspec returned no failed tests for #{ tests[path]['branch'] }.\n\n#{ tests[path]['metadata'] }\n\nCompleted in #{ tests[path]['runtime'] }"
+          ok "OK! Rspec returned no failed tests for #{tests[path]['branch']}.\n\n#{tests[path]['metadata']}\n\nCompleted in #{tests[path]['runtime']}"
         end
       else
-        unknown "Strange exit status detected for rspec on #{ tests[path]['branch'] }.\n\n#{ tests[path]['test_suite_out'] }"
+        unknown "Strange exit status detected for rspec on #{tests[path]['branch']}.\n\n#{tests[path]['test_suite_out']}"
       end
     end
 
@@ -181,8 +181,8 @@ class CheckTestSuite < Sensu::Plugin::Check::CLI
 
     successful_tests.each_pair { |_key, hash| successful_branches << hash['branch'] }
 
-    ok "OK! Rspec returned no failed tests for #{ successful_branches.join(', ') }.\nCompleted in #{ full_start - Time.now } seconds."
+    ok "OK! Rspec returned no failed tests for #{successful_branches.join(', ')}.\nCompleted in #{full_start - Time.now} seconds."
   rescue StandardError => e
-    critical "Error message: #{ e }\n#{ e.backtrace.join("\n") }"
+    critical "Error message: #{e}\n#{e.backtrace.join("\n")}"
   end
 end

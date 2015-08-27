@@ -92,7 +92,7 @@ class CheckRspec < Sensu::Plugin::Check::CLI
     sensu_client_socket d.to_json
   end
 
-  def run # rubocop:disable AbcSize
+  def run
     cd  = "cd #{config[:tests_dir]};"
     run = "#{config[:environment_variables]} #{config[:ruby_bin]} -S #{config[:rspec_bin]} #{config[:spec_dir]} -f json"
 
