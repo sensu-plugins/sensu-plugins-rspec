@@ -16,13 +16,15 @@ notifications:
     on_failure: always
 script:
 - bundle exec rake default
+- gem build sensu-plugins-rspec.gemspec
+- gem install sensu-plugins-rspec-*.gem
 deploy:
   provider: rubygems
   api_key:
-    secure: bdo28hAPtRGyVi7Q8957J+U5/GiLHiF0DaU6RmpH/i0XoBRulngn3EB7XCSmlrdTNqrePXFY29rtc4ueU0zThLACt77d3M9zmhel66Foy6m+T9Fdlx/cSBNbXJVNkqdTsGunLfRJlesVXFef3+IHw8Va18nUj+ytHoinIN2yGCE=
+    secure: AYgDVEqqT4fU2NLdz5HGn1wKX4fR82yuPWy9B5wv3E2KznCVMPMUYgcUwcIET53T3kt6LP5VMK5l3VumBa143j+9EL1wlv6uUsp1BHERr1hK/ahxMmT9+G32O11sWbNIPbsVb68ZhgRisI3ouLAZTMyO5/EdHYli1DygZPR/v3A=
   gem: sensu-plugins-rspec
   on:
-    tags: true
+    ags: true
     all_branches: true
     rvm: 1.9.3
     rvm: 2.0
