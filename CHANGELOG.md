@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [1.1.0] 2017-07-15
 ### Added
 - Config option to provide a proxy client name for rspec results
 
@@ -44,7 +46,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 * fix rubocop errors
 * add unpinned dependencies to gemspec
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/0.0.3...1.0.0
 [0.0.3]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/0.0.1...0.0.2
