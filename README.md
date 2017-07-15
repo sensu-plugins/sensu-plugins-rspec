@@ -23,7 +23,7 @@ Run only one set of tests
 
 Run tests with all options (except environment variables)
 
-`check-rspec -b /usr/bin/ruby -i bin/rspec -d /tmp/my_tests -s spec -p rspec-client`
+`check-rspec -b /usr/bin/ruby -i bin/rspec -d /tmp/my_tests -s spec --proxy-client rspec-client`
 
 Run tests with required options and multiple environment variables
 
