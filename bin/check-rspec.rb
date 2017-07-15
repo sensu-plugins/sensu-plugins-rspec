@@ -77,10 +77,9 @@ class CheckRspec < Sensu::Plugin::Check::CLI
          long: '--handler HANDLER',
          default: 'default'
 
-  option :source,
+  option :proxy_client,
          description: 'Proxy client name for results',
-         short: '-p SOURCE',
-         long: '--proxy SOURCE',
+         long: '--proxy-client SOURCE',
          required: false
 
   def sensu_client_socket(msg)
@@ -89,12 +88,12 @@ class CheckRspec < Sensu::Plugin::Check::CLI
   end
 
   def send_ok(check_name, msg)
-    d = { 'name' => check_name, 'status' => 0, 'output' => "OK: #{msg}", 'handler' => config[:handler], 'source' => config[:source] }
+    d = { 'name' => check_name, 'status' => 0, 'output' => "OK: #{msg}", 'handler' => config[:handler], 'source' => config[:proxy_client] }
     sensu_client_socket d.to_json
   end
 
   def send_warning(check_name, msg)
-    d = { 'name' => check_name, 'status' => 1, 'output' => "WARNING: #{msg}", 'handler' => config[:handler], 'source' => config[:source] }
+    d = { 'name' => check_name, 'status' => 1, 'output' => "WARNING: #{msg}", 'handler' => config[:handler], 'source' => config[:proxy_client] }
     sensu_client_socket d.to_json
   end
 
