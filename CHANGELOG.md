@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Added
+- Config option to add index value to results to prevent duplicate tests overwriting each other
 
 ## [1.1.0] 2017-07-15
 ### Added
