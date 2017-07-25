@@ -7,6 +7,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Removed
 - Ruby 1.9.3 from deploy-time testing (@eheydrick)
 
+### Added
+- Config option to add index value to results to prevent duplicate tests overwriting each other
+
 ## [1.1.0] - 2017-07-15
 ### Added
 - Config option to provide a proxy client name for rspec results

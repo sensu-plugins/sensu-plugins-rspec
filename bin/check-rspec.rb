@@ -82,6 +82,11 @@ class CheckRspec < Sensu::Plugin::Check::CLI
          long: '--proxy-client SOURCE',
          required: false
 
+  option :index_results,
+         description: 'Append extra index value to rspec results',
+         long: '--index-results',
+         default: false
+
   def sensu_client_socket(msg)
     u = UDPSocket.new
     u.send(msg + "\n", 0, '127.0.0.1', 3030)
@@ -104,9 +109,14 @@ class CheckRspec < Sensu::Plugin::Check::CLI
     rspec_results = `#{cd} #{run}`
     parsed        = JSON.parse(rspec_results)
 
-    parsed['examples'].each do |rspec_test|
-      test_name = rspec_test['file_path'].split('/')[-1] + '_' + rspec_test['line_number'].to_s
-      output    = rspec_test['full_description']
+    parsed['examples'].each_with_index do |rspec_test, index|
+      test_name = case config[:index_results]
+                  when true
+                    rspec_test['file_path'].split('/')[-1] + '_' + rspec_test['line_number'].to_s + '_' + index.to_s
+                  else
+                    rspec_test['file_path'].split('/')[-1] + '_' + rspec_test['line_number'].to_s
+                  end
+      output = rspec_test['full_description']
 
       if rspec_test['status'] == 'passed'
         send_ok(test_name, output)
