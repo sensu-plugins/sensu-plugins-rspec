@@ -4,11 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [2.0.0] - 2017-07-27
+### Breaking Changes
+- Check result names will now be appended with a unique index value to ensure a unique namespace for all results (@Evesy)
+
 ### Removed
 - Ruby 1.9.3 from deploy-time testing (@eheydrick)
-
-### Breaking Changes
-- Check result names will now be appended with a unique index value to ensure a unique namespace for all results
 
 ## [1.1.0] - 2017-07-15
 ### Added
@@ -51,7 +53,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 * fix rubocop errors
 * add unpinned dependencies to gemspec
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/0.0.3...1.0.0
 [0.0.3]: https://github.com/sensu-plugins/sensu-plugins-rspec/compare/0.0.2...0.0.3
