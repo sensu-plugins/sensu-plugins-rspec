@@ -104,9 +104,9 @@ class CheckRspec < Sensu::Plugin::Check::CLI
     rspec_results = `#{cd} #{run}`
     parsed        = JSON.parse(rspec_results)
 
-    parsed['examples'].each do |rspec_test|
-      test_name = rspec_test['file_path'].split('/')[-1] + '_' + rspec_test['line_number'].to_s
-      output    = rspec_test['full_description']
+    parsed['examples'].each_with_index do |rspec_test, index|
+      test_name = rspec_test['file_path'].split('/')[-1] + '_' + rspec_test['line_number'].to_s + '_' + index.to_s
+      output = rspec_test['full_description']
 
       if rspec_test['status'] == 'passed'
         send_ok(test_name, output)

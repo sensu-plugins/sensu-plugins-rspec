@@ -7,6 +7,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Removed
 - Ruby 1.9.3 from deploy-time testing (@eheydrick)
 
+### Breaking Changes
+- Check result names will now be appended with a unique index value to ensure a unique namespace for all results
+
 ## [1.1.0] - 2017-07-15
 ### Added
 - Config option to provide a proxy client name for rspec results
