@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rspec',        '~> 3.2', '= 3.2.0'
 
   s.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
-  s.add_development_dependency 'rubocop',                   '~> 0.40.0'
+  s.add_development_dependency 'rubocop',                   '~> 0.50.0'
   s.add_development_dependency 'bundler',                   '~> 1.7'
   s.add_development_dependency 'rake',                      '~> 10.0'
   s.add_development_dependency 'github-markup',             '~> 3.0'
