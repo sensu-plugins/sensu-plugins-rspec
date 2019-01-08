@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.version                = SensuPluginsRSpec::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '~> 1.2'
-  s.add_runtime_dependency 'rspec',        '~> 3.2', '= 3.2.0'
+  s.add_runtime_dependency 'rspec',        '~> 3.2', '3.8.0'
 
   s.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
   s.add_development_dependency 'rubocop',                   '~> 0.40.0'
